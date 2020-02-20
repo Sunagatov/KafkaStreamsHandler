@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'com.bmuschko.docker-java-application' version '4.10.0'
 }
 
 group 'org.example'
@@ -8,9 +10,12 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    jcenter()
+    maven {url 'http://packages.confluent.io/maven/'}
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.apache.kafka:kafka-streams:2.0.1'
+    compile 'org.slf4j:slf4j-log4j12:1.7.25'
+    compile 'ch.hsr:geohash:1.4.0'
 }
